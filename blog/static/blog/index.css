@@ -1,0 +1,39 @@
+img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin: 10px;
+}
+
+
+.container {
+    display: flex; /* means the container is flex so we can change the child items */
+    align-items: center; /* put both child items to the center of container */
+    justify-content: center; /* to put content to the center */
+}
+
+p{
+    text-align: center;
+    font-size: 1rem;
+}
+
+table{
+    display: flex; /* means the container is flex so we can change the child items */
+    align-items: center; /* put both child items to the center of container */
+    justify-content: center;
+}
+
+.cards{
+list-style: none; /* to remove markers */
+  margin: 2rem auto;
+  width: 10rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding: 1rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 15rem;
+  background-color: #a0c6d8;
+  text-align: center;
+}
