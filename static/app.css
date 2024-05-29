@@ -1,31 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+/* it dynamically fetches the font from the Google Fonts server. When a user visits your website, their browser sends a request to the Google Fonts server. */
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
 
+/* By setting it to border-box, the total width and height of an element include the content, padding, and border, but exclude any margin. */
 * {
   box-sizing: border-box;
 }
 
 html {
-  font-family: 'Open Sans', 'Lato', sans-serif;
+  font-family: "Play", sans-serif;
 }
 
 body {
+  /* margin for the main back-griund color is 0 */
   margin: 0;
 }
 
 h1,
 h2,
 h3 {
-  font-family: 'Lato', sans-serif;
+  font-family: "Play", sans-serif;
   font-weight: bold;
 }
-
+/* nav panel styling */
 #main-navigation {
+  /* nav panel for whole screen width */
   width: 100%;
+  /* nav panel height */
   height: 5rem;
+  /* This property makes the nav panel a flex container */
   display: flex;
+  /* aligns the child elements horizontally with equal space between them. */
   justify-content: space-between;
+  /* Vertically centers the child elements within the container */
   align-items: center;
+  /* adding 10% padding only to left and right but not to top/bottom */
   padding: 0 10%;
+
   position: absolute;
   top: 0;
   left: 0;
@@ -33,16 +43,16 @@ h3 {
 
 #main-navigation a {
   text-decoration: none;
-  color: white;
+  color: wheat;
   font-weight: bold;
 }
 
 #main-navigation a:hover,
 #main-navigation a:active {
-  color: #cf79f1;
+  color: #daad45;
 }
 
 #main-navigation h1 a:hover,
 #main-navigation h1 a:active {
-  color: white;
+  color: #390281;
 }

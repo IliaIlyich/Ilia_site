@@ -1,23 +1,20 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block page_title %}My Page{% endblock %}
+
 {% block css_files %}
 <link rel="stylesheet" href="{% static "blog/index.css"%}">
 {% endblock %}
 
 {% block content %}
 
-<header id = "main-navigation">
-    <h1><a href="{% url "index" %}">Ilia's Blog</a></h1>
-    <nav>
-        <a href="{% url "index" %}">All posts</a>
-    </nav>
-</header>
+
 <!--We can use <section> tag to group content related to specific topic -->
 <section id="welcome">
     <header>
         <!--It is better to populate the "alt" attribute for SEO (search engine optimization)-->
-        <img src="" alt= "Ilia - The author of this blog">
+        <img src="{% static "blog/images/The-Ant.jpeg" %}" alt= "Ilia - The author of this blog">
         <h2>Ilia's blog</h2>
     </header>
     <p>Hi, I am Ilia and I like to blog about ants and payments!</p>
@@ -45,8 +42,9 @@
         <li>
             <!--it is better to represent a blog post as an <article> element-->
             <article id = "post">
+                <!--the whole post is a link. That is why <a> tag as a first tag-->
                 <a href="">
-                    <img src="" alt = "How to implement the payment Gateway">
+                    <img src="{% static "blog/images/The-Process.jpeg" %}" alt = "How to implement the payment Gateway">
                     <!--use div to group some content together-->
                     <div class = "post__content">
                         <h3>Paymennt Gateway</h3>

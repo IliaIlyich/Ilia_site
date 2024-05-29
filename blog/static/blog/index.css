@@ -1,5 +1,8 @@
+/* "welcome" section styling */
 #welcome {
-  background: linear-gradient(to right top, #6305dd, #390281);
+    /* In this example, the gradient starts from the left side of the element and progresses horizontally */
+  background: linear-gradient(to right top, #daad45, #390281);
+  /* 6rem: This specifies the top and bottom padding. 12%: This specifies the left and right padding */
   padding: 6rem 12%;
 }
 
@@ -24,12 +27,13 @@
 #welcome h2 {
   font-size: 3.5rem;
   margin: 0 0 0 2rem;
-  color: #e4e4e4;
+  color: wheat;
+  /* fixed width of 10 rems for the h2 */
   width: 10rem;
 }
 
 #welcome p {
-  color: white;
+  color: wheat;
   font-size: 1.5rem;
 }
 
@@ -40,6 +44,11 @@
   width: 60rem;
   margin: -6rem auto 2rem auto;
   box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.4);
+}
+
+#latest-posts img{
+  width: 30rem;
+  height: 10rem;
 }
 
 #latest-posts h2 {
