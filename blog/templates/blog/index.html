@@ -5,6 +5,7 @@
 
 {% block css_files %}
 <link rel="stylesheet" href="{% static "blog/index.css"%}">
+<link rel="stylesheet" href="{% static "blog/post.css"%}"> 
 {% endblock %}
 
 {% block content %}
@@ -39,23 +40,12 @@
     </table>
     -->
     <ul>
-        <li>
-            <!--it is better to represent a blog post as an <article> element-->
-            <article id = "post">
-                <!--the whole post is a link. That is why <a> tag as a first tag-->
-                <a href="">
-                    <img src="{% static "blog/images/The-Process.jpeg" %}" alt = "How to implement the payment Gateway">
-                    <!--use div to group some content together-->
-                    <div class = "post__content">
-                        <h3>Paymennt Gateway</h3>
-                        <p>
-                            The text about the payment Gatewey. The text about the payment Gatewey.
-                            The text about the payment Gatewey.The text about the payment Gatewey.    
-                        </p>
-                    </div>
-                </a>
-            </article>
-        </li>
+        <!-- here we included the post.html file and added the post.css -
+             so .css will affect post.html snippet since there is
+             a .post class described in post.css and there is a 
+             class = post in the post.html snippet 
+        -->
+        {% include "blog/includes/post.html" %}
     </ul>
 </section>
 

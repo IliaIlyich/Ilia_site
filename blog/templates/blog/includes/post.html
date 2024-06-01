@@ -1,0 +1,18 @@
+{% load static %}
+<li>
+    <!--it is better to represent a blog post as an <article> element-->
+    <article class = "post">
+        <!--the whole post is a link. That is why <a> tag as a first tag-->
+        <a href="">
+            <img src="{% static "blog/images/The-Process.jpeg" %}" alt = "How to implement the payment Gateway">
+            <!--use div to group some content together-->
+            <div class = "post__content">
+                <h3>Paymennt Gateway</h3>
+                <p>
+                    The text about the payment Gatewey. The text about the payment Gatewey.
+                    The text about the payment Gatewey.The text about the payment Gatewey.    
+                </p>
+            </div>
+        </a>
+    </article>
+</li>

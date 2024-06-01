@@ -38,7 +38,7 @@
 }
 
 #latest-posts {
-  background-color: white;
+  background-color: rgb(238, 222, 191);
   padding: 2rem;
   border-radius: 12px;
   width: 60rem;
@@ -60,6 +60,7 @@
   margin: 0;
   padding: 0;
   display: flex;
+  /* using "gap" to add 1rem between list items */
   gap: 1rem;
 }
 
