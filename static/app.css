@@ -35,10 +35,11 @@ h3 {
   align-items: center;
   /* adding 10% padding only to left and right but not to top/bottom */
   padding: 0 10%;
-
   position: absolute;
   top: 0;
   left: 0;
+  background: linear-gradient(to right top, #daad45, #390281);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 #main-navigation a {

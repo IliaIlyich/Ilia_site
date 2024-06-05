@@ -1,0 +1,48 @@
+body {
+  background-color: #e7e7e7;
+}
+
+.post img {
+  width: 7rem;
+  height: 7rem;
+}
+
+.post a {
+  height: 22rem;
+  transform-origin: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  background-color: white;
+}
+
+#all-posts {
+  /* 7rem top/bottom and auto for left bottom
+  "auto" is meaning that it will center horizonatally */
+  margin: 7rem auto;
+  width: 90%;
+  max-width: 70rem;
+}
+
+#all-posts h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #2e2e2e;
+  margin: 3rem 0;
+}
+
+ul {
+  /* to remove markers */
+  list-style: none;
+  /* set margin/padding to 0 to reset default value for ul */
+  margin: 0;
+  padding: 0;
+  /* to locate li as a grid */
+  display: grid;
+  /* the columns definition in the grid
+  17 rem min - but can expand to fill available space */
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  /* to set gaps between grid items */
+  gap: 1.5rem;
+}
+
+

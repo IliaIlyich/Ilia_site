@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}This Post Title{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "blog/post-detail.css"%}">
+ 
+{% endblock %}
+
+{% block content %}
+
+<section id = "summary">
+
+    <h2>Post title</h2>
+    <article>
+        <img src="{% static "blog/images/The-Process.jpeg" %}" alt="Post Title">
+        <!-- is used to indicate contact information or the authorship of a document -->
+        <addrese>By Ilia</address>
+            <div>
+        <!-- using the <time> tag to provide actual date -->
+                Last updated on <time>3rd of June</time>
+            </div>
+    </article>
+
+</section>
+
+<main>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Quasi accusamus, necessitatibus doloremque voluptas optio expedita numquam ducimus nam error ratione perspiciatis consequuntur praesentium. 
+        Assumenda perspiciatis repellat maxime nihil asperiores quas?
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Quasi accusamus, necessitatibus doloremque voluptas optio expedita numquam ducimus nam error ratione perspiciatis consequuntur praesentium. 
+        Assumenda perspiciatis repellat maxime nihil asperiores quas?
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Quasi accusamus, necessitatibus doloremque voluptas optio expedita numquam ducimus nam error ratione perspiciatis consequuntur praesentium. 
+        Assumenda perspiciatis repellat maxime nihil asperiores quas?
+    </p>
+</main>
+
+{%endblock %}

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href="{% static "app.css" %}">
+    <link rel='stylesheet' href="{% static "app.css" %}"/>
     {% block css_files %} {% endblock %}
     <title>{% block page_title %}My Page{% endblock %}</title>
 </head>
@@ -12,7 +12,7 @@
     <header id = "main-navigation">
         <h1><a href="{% url "index" %}">Ilia's Blog</a></h1>
         <nav>
-            <a href="{% url "index" %}">All posts</a>
+            <a href="{% url "posts-page" %}">All posts</a>
         </nav>
     </header>
     {% block content %}

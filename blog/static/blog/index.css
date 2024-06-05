@@ -1,7 +1,7 @@
 /* "welcome" section styling */
 #welcome {
     /* In this example, the gradient starts from the left side of the element and progresses horizontally */
-  background: linear-gradient(to right top, #daad45, #390281);
+  background-color:#b89b58;
   /* 6rem: This specifies the top and bottom padding. 12%: This specifies the left and right padding */
   padding: 6rem 12%;
 }
