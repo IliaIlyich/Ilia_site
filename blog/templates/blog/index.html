@@ -45,7 +45,9 @@
              a .post class described in post.css and there is a 
              class = post in the post.html snippet 
         -->
+        {% for post in latest_posts %}
         {% include "blog/includes/post.html" %}
+        {% endfor %}
     </ul>
 </section>
 

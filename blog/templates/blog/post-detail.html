@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_title %}This Post Title{% endblock %}
+{% block page_title %}{{post.title}}{% endblock %}
 
 {% block css_files %}
 <link rel="stylesheet" href="{% static "blog/post-detail.css"%}">
@@ -12,14 +12,14 @@
 
 <section id = "summary">
 
-    <h2>Post title</h2>
+    <h2>{{post.title}}</h2>
     <article>
-        <img src="{% static "blog/images/The-Process.jpeg" %}" alt="Post Title">
+        <img src="{% static "blog/images/"|add:post.image %}" alt="{{post.title}}">
         <!-- is used to indicate contact information or the authorship of a document -->
-        <addrese>By Ilia</address>
+        <addrese>By {{post.author}}</address>
             <div>
         <!-- using the <time> tag to provide actual date -->
-                Last updated on <time>3rd of June</time>
+                Last updated on <time>{{post.date|date:"d M Y"}}</time>
             </div>
     </article>
 
@@ -27,19 +27,7 @@
 
 <main>
     <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-        Quasi accusamus, necessitatibus doloremque voluptas optio expedita numquam ducimus nam error ratione perspiciatis consequuntur praesentium. 
-        Assumenda perspiciatis repellat maxime nihil asperiores quas?
-    </p>
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-        Quasi accusamus, necessitatibus doloremque voluptas optio expedita numquam ducimus nam error ratione perspiciatis consequuntur praesentium. 
-        Assumenda perspiciatis repellat maxime nihil asperiores quas?
-    </p>
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-        Quasi accusamus, necessitatibus doloremque voluptas optio expedita numquam ducimus nam error ratione perspiciatis consequuntur praesentium. 
-        Assumenda perspiciatis repellat maxime nihil asperiores quas?
+        {{post.content|linebreaks}}
     </p>
 </main>
 

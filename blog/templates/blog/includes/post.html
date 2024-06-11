@@ -4,14 +4,17 @@
     <article class = "post">
         <!--the whole post is a link. That is why <a> tag as a first tag-->
         <!-- we do not have to forget about the key argument "slug" for the dynamic segment -->    
-        <a href="{% url "post-detail-page" slug="payment-gateway"%}">
-            <img src="{% static "blog/images/The-Process.jpeg" %}" alt = "How to implement the payment Gateway">
+        <a href="{% url "post-detail-page" slug=post.slug %}">
+            <!-- the img must be partionally hardcoded: "blog/images/"|add: post.image  -->
+            <img src="{% static "blog/images/"|add:post.image %}" alt = "{{post.title}}">
             <!--use div to group some content together-->
             <div class = "post__content">
-                <h3>Paymennt Gateway</h3>
+                <!--  using interpolation in the template 
+                    post.title - accessing dictionary fileds in templates (not like in regular Python)
+                -->
+                <h3>{{post.title}}</h3>
                 <p>
-                    The text about the payment Gatewey. The text about the payment Gatewey.
-                    The text about the payment Gatewey.The text about the payment Gatewey.    
+                    {{ post.excerpt }}    
                 </p>
             </div>
         </a>

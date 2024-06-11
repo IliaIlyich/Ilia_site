@@ -47,8 +47,11 @@
 }
 
 #latest-posts img{
-  width: 30rem;
-  height: 10rem;
+    /* because of big width/height I had a problem with index page */
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 #latest-posts h2 {

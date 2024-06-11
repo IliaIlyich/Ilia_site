@@ -3,7 +3,7 @@ from datetime import date
 
 #to have data provided from python and not hardcoded 
 # we are going to use temp var "posts"
-posts = [
+all_posts = [
   {
     "slug": "payment-gateway",
     "image": "The-Process.jpeg",
@@ -63,20 +63,51 @@ posts = [
     Quasi accusamus, necessitatibus doloremque voluptas optio expedita numquam ducimus nam error ratione perspiciatis consequuntur praesentium. 
     Assumenda perspiciatis repellat maxime nihil asperiores quas?
     """
+  },
+  {
+    "slug": "payment-gateway",
+    "image": "The-Process.jpeg",
+    "author": "Ilia",
+    "date": date(2024, 6, 5),
+    "title": "Payment Gateway",
+    "excerpt": "The text about the payment Gatewey. The text about the payment Gatewey. The text about the payment Gatewey.The text about the payment Gatewey.",
+    #to create a multi line string - use
+    "content": """
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Quasi accusamus, necessitatibus doloremque voluptas optio expedita numquam ducimus nam error ratione perspiciatis consequuntur praesentium. 
+    Assumenda perspiciatis repellat maxime nihil asperiores quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Quasi accusamus, necessitatibus doloremque voluptas optio expedita numquam ducimus nam error ratione perspiciatis consequuntur praesentium. 
+    Assumenda perspiciatis repellat maxime nihil asperiores quas?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Quasi accusamus, necessitatibus doloremque voluptas optio expedita numquam ducimus nam error ratione perspiciatis consequuntur praesentium. 
+    Assumenda perspiciatis repellat maxime nihil asperiores quas?
+    """
   }
 ]
 # Create your views here.
 
+def get_date(post):
+  return post['date']
+
 def index(request):
-    cards = list(post_text.items())[-3:]
+  # The sorted() function returns a sorted list of the specified iterable object.
+  # sorted(iterable, key=key, reverse=reverse)
+    sorted_posts = sorted(all_posts, key=get_date)
+    latest_posts = sorted_posts[-3:]
             
     return render(request, "blog/index.html", {
-        "cards": cards
+        "latest_posts": latest_posts
           })
-
+#I had a slug for this view but I do not hav <slug:slug> for this url as a dynamic segment
 def posts(request):
-  return render(request, "blog/all-posts.html")
+  return render(request, "blog/all-posts.html", {
+    "all_posts": all_posts
+  })
 
 #we are going to use the dynamic url - we have to specify "slug" as a context
 def post_detail(request, slug):
-  return render(request, "blog/post-detail.html")
+  selected_post=next(post for post in all_posts if post['slug']==slug)
+  return render(request, "blog/post-detail.html",{
+    "post": selected_post
+  })
