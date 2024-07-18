@@ -109,5 +109,6 @@ def posts(request):
 def post_detail(request, slug):
   selected_post=next(post for post in all_posts if post['slug']==slug)
   return render(request, "blog/post-detail.html",{
+    #the context mut be with the same name as 
     "post": selected_post
   })
