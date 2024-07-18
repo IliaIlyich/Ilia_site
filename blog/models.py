@@ -6,7 +6,7 @@ class Tag(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=50)
-    excerpt = models.CharField()
+    excerpt = models.CharField(max_length=300)
     image_name = models.CharField(max_length=50)
     # set the date when the post was first created
     # it doesn't change it on subsequent saves 
