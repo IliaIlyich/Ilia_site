@@ -20,7 +20,7 @@ class Author(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=50)
-    author = models.ForeignKey(Author, on_delete=models.CASCADE, null=True)
+    author= models.ForeignKey(Author, on_delete=models.CASCADE, null=True)
     excerpt = models.CharField(max_length=300)
     image_name = models.CharField(max_length=50)
     # set the date when the post was first created
@@ -43,5 +43,5 @@ class Post(models.Model):
         # according to Stackoverflow - it is possible do not use args but I used just in case
     #    super().save(*args, **kwargs)
     def __str__(self) -> str:
-        return f"Author: {Author.first_name}, {self.title}, {self.date_created}"
+        return f"Author: {self.author}, {self.title}, {self.date_created}"
         

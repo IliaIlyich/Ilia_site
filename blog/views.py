@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from datetime import date
+from .models import Post
 
 #to have data provided from python and not hardcoded 
 # we are going to use temp var "posts"
+'''
 all_posts = [
   {
     "slug": "payment-gateway",
@@ -85,29 +87,32 @@ all_posts = [
     """
   }
 ]
+'''
 # Create your views here.
 
-def get_date(post):
-  return post['date']
+#def get_date(post):
+#  return post['date']
 
 def index(request):
-  # The sorted() function returns a sorted list of the specified iterable object.
-  # sorted(iterable, key=key, reverse=reverse)
-    sorted_posts = sorted(all_posts, key=get_date)
-    latest_posts = sorted_posts[-3:]
+    # queue to get sorted list of objects according to the "-date_created" + "-id"
+    sorted_posts = Post.objects.all().order_by("-id")
+    latest_posts = sorted_posts[:3]
             
     return render(request, "blog/index.html", {
         "latest_posts": latest_posts
           })
+    
 #I had a slug for this view but I do not hav <slug:slug> for this url as a dynamic segment
 def posts(request):
+  all_posts = Post.objects.all()
   return render(request, "blog/all-posts.html", {
     "all_posts": all_posts
   })
 
 #we are going to use the dynamic url - we have to specify "slug" as a context
 def post_detail(request, slug):
-  selected_post=next(post for post in all_posts if post['slug']==slug)
+  all_posts = Post.objects.all()
+  selected_post=next(post for post in all_posts if post.slug==slug)
   return render(request, "blog/post-detail.html",{
     #the context mut be with the same name as 
     "post": selected_post
