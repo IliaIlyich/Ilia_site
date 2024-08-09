@@ -1,5 +1,6 @@
 from django.db import models
-from django.utils.text import slugify
+#from django.utils.text import slugify
+from django.core.validators import MinLengthValidator
 
 class Tag(models.Model):
     caption = models.CharField(max_length = 20)
@@ -20,7 +21,8 @@ class Author(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=50)
-    author= models.ForeignKey(Author, on_delete=models.CASCADE, null=True)
+    # on_delete = models.CASCADE was deleted since we do not want to delete all author's posts in case of author deletion 
+    author= models.ForeignKey(Author, on_delete=models.SET_NULL, related_name="posts", null = True)
     excerpt = models.CharField(max_length=300)
     image_name = models.CharField(max_length=50)
     # set the date when the post was first created
@@ -29,9 +31,10 @@ class Post(models.Model):
     # with auto_now = True the value will be updated every time the post is edited
     date_edited = models.DateField(auto_now=True)
     # if db_index = True - the db index will be created for this field
-    slug = models.SlugField(default="", null=False, db_index=True)
+    slug = models.SlugField(default="", null=False, db_index=True, unique=True)
     # lets try the TextField - without max_length
-    content = models.TextField()
+    # lets add the MinLengthValidator
+    content = models.TextField(validators=[MinLengthValidator(10)])
     tag = models.ManyToManyField(Tag)
     
     # we are going to use admin console to enter data. 

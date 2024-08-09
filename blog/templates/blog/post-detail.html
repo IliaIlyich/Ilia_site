@@ -13,13 +13,19 @@
 <section id = "summary">
 
     <h2>{{post.title}}</h2>
+    <div>
+        {% for tag in post_tags %}
+        <!-- <span> to style text + we need an interpolation -->
+        <span> {{tag.caption}} </span>
+        {% endfor %}
+    </div>
     <article>
         <img src="{% static "blog/images/"|add:post.image_name %}" alt="{{post.title}}">
         <!-- is used to indicate contact information or the authorship of a document -->
-        <addrese>By {{post.author}}</address>
+        <address>By <a href="mailto:{{post.author.e_mail}}"> {{post.author}}</a></address>
             <div>
         <!-- using the <time> tag to provide actual date -->
-                Last updated on <time>{{post.date|date:"d M Y"}}</time>
+                Last updated on <time>{{post.date_edited}}</time>
             </div>
     </article>
 

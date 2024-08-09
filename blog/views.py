@@ -1,6 +1,5 @@
-from django.shortcuts import render
-from datetime import date
-from .models import Post
+from django.shortcuts import render, get_object_or_404
+from .models import Post, Tag
 
 #to have data provided from python and not hardcoded 
 # we are going to use temp var "posts"
@@ -95,8 +94,7 @@ all_posts = [
 
 def index(request):
     # queue to get sorted list of objects according to the "-date_created" + "-id"
-    sorted_posts = Post.objects.all().order_by("-id")
-    latest_posts = sorted_posts[:3]
+    latest_posts = Post.objects.all().order_by("-id")[:3]
             
     return render(request, "blog/index.html", {
         "latest_posts": latest_posts
@@ -111,9 +109,14 @@ def posts(request):
 
 #we are going to use the dynamic url - we have to specify "slug" as a context
 def post_detail(request, slug):
-  all_posts = Post.objects.all()
-  selected_post=next(post for post in all_posts if post.slug==slug)
+  #all_posts = Post.objects.all()
+  #selected_post=next(post for post in all_posts if post.slug==slug)
+  
+  selected_post = get_object_or_404(Post, slug=slug)
+  
   return render(request, "blog/post-detail.html",{
     #the context mut be with the same name as 
-    "post": selected_post
+    "post": selected_post,
+    #to get all tags for the current post - we need to use additional variable here and get all tahs to this variable
+    "post_tags": selected_post.tag.all()
   })

@@ -44,6 +44,11 @@ body {
   margin-bottom: 1rem;
 }
 
+#summary a {
+  color: white;
+  text-decoration: none;
+}
+
 #summary address {
   font-weight: bold;
 }
