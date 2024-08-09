@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #----FOR DEBUG TOOLBAR-----
     'debug_toolbar',
+    #--------------------------
 ]
 
 MIDDLEWARE = [
@@ -50,9 +52,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+#----FOR DEBUG TOOLBAR-----
 if DEBUG:
     
     MIDDLEWARE = ['debug_toolbar.middleware.DebugToolbarMiddleware'] + MIDDLEWARE
+
+#--------------------------
 
 ROOT_URLCONF = 'Ilia_site.urls'
 
