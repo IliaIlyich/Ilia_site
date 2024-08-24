@@ -117,6 +117,6 @@ def post_detail(request, slug):
   return render(request, "blog/post-detail.html",{
     #the context mut be with the same name as 
     "post": selected_post,
-    #to get all tags for the current post - we need to use additional variable here and get all tahs to this variable
+    #to get all tags for the current post - we need to use additional variable here and get all tags to this variable
     "post_tags": selected_post.tag.all()
   })
