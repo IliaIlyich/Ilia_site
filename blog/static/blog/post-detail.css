@@ -24,6 +24,12 @@ body {
   font-size: 4.5rem;
 }
 
+
+#summary div span{
+  color: white;
+  font-size: 2rem;
+}
+
 #summary article {
   /* the element will use top,right to for position relative the positioned ancester */
   position: absolute;
